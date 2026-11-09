@@ -10,5 +10,5 @@ def test_ui_smoke(qtbot):
     win = MainWindow(ctrl)
     qtbot.addWidget(win)
     win.show()
-    assert win.windowTitle() == "SCIENTIFIC TIME MACHINE"
+    assert "SCIENTIFIC TIME MACHINE" in win.windowTitle()
     ctrl.close()

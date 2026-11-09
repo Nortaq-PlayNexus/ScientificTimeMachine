@@ -16,6 +16,8 @@ matplotlib.use("QtAgg")
 from ..core.experiment import Experiment
 from ..core.replay import run_simulation
 from ..app import AppController
+from .theme import HIGH_TECH_QSS
+from .views3d import View3DTimeline, View3DParamSpace, View3DSurface
 
 
 class TimelineView(QWidget):
@@ -172,8 +174,9 @@ class MainWindow(QMainWindow):
     def __init__(self, ctrl):
         super().__init__()
         self.ctrl = ctrl
-        self.setWindowTitle("SCIENTIFIC TIME MACHINE")
-        self.resize(1100, 700)
+        self.setWindowTitle("SCIENTIFIC TIME MACHINE — 3D")
+        self.resize(1250, 780)
+        self.setStyleSheet(HIGH_TECH_QSS)
         tabs = QTabWidget()
         self.timeline = TimelineView(ctrl)
         self.graph = ExperimentGraphView(ctrl)
@@ -185,6 +188,12 @@ class MainWindow(QMainWindow):
         tabs.addTab(self.sim, "Simulation Viewer")
         tabs.addTab(self.snaps, "Snapshot Browser")
         tabs.addTab(self.cmp, "Comparison Dashboard")
+        self.timeline3d = View3DTimeline(ctrl)
+        self.param3d = View3DParamSpace(ctrl)
+        self.surface3d = View3DSurface(ctrl)
+        tabs.addTab(self.timeline3d, "3D Timeline")
+        tabs.addTab(self.param3d, "3D Param Space")
+        tabs.addTab(self.surface3d, "3D Surface")
         self.create_tab = self._build_create_tab()
         tabs.addTab(self.create_tab, "Create / Branch")
         self.setCentralWidget(tabs)
@@ -245,6 +254,9 @@ class MainWindow(QMainWindow):
 
     def _refresh_all(self):
         self.timeline.refresh()
+        self.timeline3d.refresh()
+        self.param3d.refresh()
+        self.surface3d.refresh_list()
         self.graph.refresh_list()
         self.sim.refresh_list()
         self.snaps.refresh()
