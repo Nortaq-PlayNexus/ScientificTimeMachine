@@ -17,7 +17,7 @@ from ..core.experiment import Experiment
 from ..core.replay import run_simulation
 from ..app import AppController
 from .theme import HIGH_TECH_QSS
-from .views3d import View3DTimeline, View3DParamSpace, View3DSurface
+from .views3d_hq import ViewHQ3DTimeline, ViewHQ3DParamSpace, ViewHQ3DSurface
 
 
 class TimelineView(QWidget):
@@ -188,9 +188,9 @@ class MainWindow(QMainWindow):
         tabs.addTab(self.sim, "Simulation Viewer")
         tabs.addTab(self.snaps, "Snapshot Browser")
         tabs.addTab(self.cmp, "Comparison Dashboard")
-        self.timeline3d = View3DTimeline(ctrl)
-        self.param3d = View3DParamSpace(ctrl)
-        self.surface3d = View3DSurface(ctrl)
+        self.timeline3d = ViewHQ3DTimeline(ctrl)
+        self.param3d = ViewHQ3DParamSpace(ctrl)
+        self.surface3d = ViewHQ3DSurface(ctrl)
         tabs.addTab(self.timeline3d, "3D Timeline")
         tabs.addTab(self.param3d, "3D Param Space")
         tabs.addTab(self.surface3d, "3D Surface")
