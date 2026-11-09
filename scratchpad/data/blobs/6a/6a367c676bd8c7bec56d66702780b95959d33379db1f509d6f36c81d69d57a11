@@ -1,0 +1,1 @@
+{"branch_name": "main", "created_at": 1794235996.412977, "description": "", "id": "c6146e97-5dbe-40e2-a905-8108a3c27315", "metadata": {}, "name": "Initial Experiment", "params": {"base": 1.0, "noise": 0.1, "steps": 50}, "parent_id": null, "seed": 42, "snapshot_hash": "7648f8dd2e463a7435b4bc26deb71ff65815a67ee8c31f56860095c8556cf10e", "state": {}}

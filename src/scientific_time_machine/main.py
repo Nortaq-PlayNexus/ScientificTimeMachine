@@ -1,0 +1,9 @@
+[project]
+name = "scientific-time-machine"
+version = "1.0.0"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+""", filePath="C:\Users\PlayNexus\ScientificTimeMachine\pyproject.toml")
